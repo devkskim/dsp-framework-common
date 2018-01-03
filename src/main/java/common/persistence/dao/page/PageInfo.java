@@ -49,12 +49,10 @@ public class PageInfo<T> implements Pagenateable {
 	 */
 	private PagenateInfo page = new PagenateInfo();
 
-	@Override
 	public PagenateInfo getPage() {
 		return this.page;
 	}
 
-	@Override
 	public void setPage(PagenateInfo pim) {
 		this.page = pim;
 	}

@@ -10,7 +10,6 @@ public abstract class RowHandler<T, R> implements StreamHandler<T, R> {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler#open()
 	 */
-	@Override
 	public void open() {
 	}
 
@@ -19,7 +18,6 @@ public abstract class RowHandler<T, R> implements StreamHandler<T, R> {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler#close()
 	 */
-	@Override
 	public void close() {
 	}
 
@@ -28,7 +26,6 @@ public abstract class RowHandler<T, R> implements StreamHandler<T, R> {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler#isStop()
 	 */
-	@Override
 	public boolean isStop() {
 		return this.stop;
 	}
@@ -38,7 +35,6 @@ public abstract class RowHandler<T, R> implements StreamHandler<T, R> {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler#stop()
 	 */
-	@Override
 	public void stop() {
 		this.stop = true;
 	}
@@ -48,7 +44,6 @@ public abstract class RowHandler<T, R> implements StreamHandler<T, R> {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler#handleRow(java.lang.Object)
 	 */
-	@Override
 	public abstract R handleRow(T valueObject);
 
 }

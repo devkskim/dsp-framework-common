@@ -1,8 +1,8 @@
 package common.exception;
 
-import com.dsp.common.context.DspReturnCodeSpec;
-import com.dsp.common.exception.domain.ErrorInfo;
-import com.dsp.common.util.StringUtils;
+import common.context.DspReturnCodeSpec;
+import common.exception.domain.ErrorInfo;
+import common.util.StringUtils;
 
 /**
  * <p>

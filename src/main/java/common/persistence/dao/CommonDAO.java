@@ -3,9 +3,9 @@ package common.persistence.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.dsp.common.persistence.dao.handler.StreamHandler;
-import com.dsp.common.persistence.dao.page.PageInfo;
-import com.dsp.common.persistence.dao.page.PageStatement;
+import common.persistence.dao.handler.StreamHandler;
+import common.persistence.dao.page.PageInfo;
+import common.persistence.dao.page.PageStatement;
 
 /**
  * <p>

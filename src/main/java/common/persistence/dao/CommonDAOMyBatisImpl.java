@@ -13,12 +13,12 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.dsp.common.domain.PagenateableVO;
-import com.dsp.common.exception.DspException;
-import com.dsp.common.persistence.dao.handler.StreamHandler;
-import com.dsp.common.persistence.dao.page.PageInfo;
-import com.dsp.common.persistence.dao.page.PageStatement;
-import com.dsp.common.persistence.dao.page.PagenateInfo;
+import common.domain.PagenateableVO;
+import common.exception.DspException;
+import common.persistence.dao.handler.StreamHandler;
+import common.persistence.dao.page.PageInfo;
+import common.persistence.dao.page.PageStatement;
+import common.persistence.dao.page.PagenateInfo;
 
 public class CommonDAOMyBatisImpl implements CommonDAO {
 
@@ -31,7 +31,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForInt(java.lang.String, java.lang.Object)
 	 */
-	@Override
+	
 	public Integer queryForInt(String statementId, Object parameter) {
 		Integer value = (Integer) this.template.selectOne(statementId, parameter);
 
@@ -48,7 +48,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForLong(java.lang.String,
 	 * java.lang.Object)
 	 */
-	@Override
+	
 	public Long queryForLong(String statementId, Object parameter) {
 		return (Long) this.template.selectOne(statementId, parameter);
 	}
@@ -59,7 +59,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForObject(java.lang.String,
 	 * java.lang.Object, java.lang.Class)
 	 */
-	@Override
+	
 	public <T> T queryForObject(String statementId, Object parameter, Class<T> clazz) {
 		return clazz.cast(this.template.selectOne(statementId, parameter));
 	}
@@ -70,7 +70,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForObject(java.lang.String,
 	 * java.lang.Object)
 	 */
-	@Override
+	
 	public Object queryForObject(String statementId, Object parameter) {
 		return this.template.selectOne(statementId, parameter);
 	}
@@ -81,7 +81,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForMap(java.lang.String, java.lang.String,
 	 * java.lang.Object)
 	 */
-	@Override
+	
 	public Map<?, ?> queryForMap(String statementId, String mapKey, Object parameter) {
 		return this.template.selectMap(statementId, parameter, mapKey);
 	}
@@ -92,7 +92,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForList(java.lang.String,
 	 * java.lang.Object, java.lang.Class)
 	 */
-	@Override
+	
 	@SuppressWarnings("unchecked")
 	public <T> List<T> queryForList(String statementId, Object parameter, Class<T> clazz) {
 		List<T> list = (List<T>) this.template.selectList(statementId, parameter);
@@ -109,7 +109,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryForList(java.lang.String,
 	 * java.lang.Object)
 	 */
-	@Override
+	
 	public List<?> queryForList(String statementId, Object parameter) {
 		List<?> list = this.template.selectList(statementId, parameter);
 
@@ -120,7 +120,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public <T> PageInfo<T> queryForPagenatedList(PageStatement statement, Object parameter) {
 		int totalCount = this.queryForInt(statement.getTotalCountStatementId(), parameter);
 
@@ -153,7 +153,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * .framework.core.persistence.dao.page.PageStatement, java.lang.Object, int, int, java.lang.Class)
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
+	
 	public <T> PageInfo<T> queryForPagenatedList(PageStatement statement, Object parameter, int pageNum, int pageRows) {
 		int totalCount = this.queryForInt(statement.getTotalCountStatementId(), parameter);
 
@@ -214,7 +214,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#queryWithResultHandler(java.lang.String,
 	 * java.lang.Object, com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler)
 	 */
-	@Override
+	
 	public <T, R> List<R> queryWithResultHandler(String statementId, Object parameter,
 			final StreamHandler<T, R> streamHandler) {
 		streamHandler.open();
@@ -223,7 +223,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 			final List<R> list = new ArrayList<R>();
 
 			this.template.select(statementId, parameter, new ResultHandler() {
-				@Override
+				
 				@SuppressWarnings("unchecked")
 				public void handleResult(ResultContext context) {
 					R result = streamHandler.handleRow((T) context.getResultObject());
@@ -251,7 +251,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * .framework.core.persistence.dao.page.PageStatement, java.lang.Object, int, int,
 	 * com.sktelecom.tlife.framework.core.persistence.dao.handler.StreamHandler)
 	 */
-	@Override
+	
 	public <T, R> PageInfo<R> queryWithResultHandler(PageStatement statement, Object parameter, int pageNum,
 			int pageRows, final StreamHandler<T, R> streamHandler) {
 		streamHandler.open();
@@ -270,7 +270,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 						new ResultHandler() {
 
 							@SuppressWarnings("unchecked")
-							@Override
+							
 							public void handleResult(ResultContext context) {
 								R result = streamHandler.handleRow((T) context.getResultObject());
 
@@ -300,7 +300,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#update(java.lang.String, java.lang.Object)
 	 */
-	@Override
+	
 	public Integer update(String statementId, Object parameter) {
 		return this.template.update(statementId, parameter);
 	}
@@ -310,7 +310,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#insert(java.lang.String, java.lang.Object)
 	 */
-	@Override
+	
 	public Integer insert(String statementId, Object parameter) {
 		return this.template.insert(statementId, parameter);
 	}
@@ -320,7 +320,7 @@ public class CommonDAOMyBatisImpl implements CommonDAO {
 	 * 
 	 * @see com.sktelecom.tlife.framework.core.persistence.dao.CommonDAO#delete(java.lang.String, java.lang.Object)
 	 */
-	@Override
+	
 	public Integer delete(String statementId, Object parameter) {
 		return this.template.delete(statementId, parameter);
 	}

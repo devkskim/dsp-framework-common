@@ -6,7 +6,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-import com.dsp.common.domain.CommonVO;
+import common.domain.CommonVO;
 
 /**
  * <p>

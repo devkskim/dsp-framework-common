@@ -11,8 +11,8 @@ package common.domain;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
-import com.dsp.common.persistence.dao.page.PagenateInfo;
-import com.dsp.common.persistence.dao.page.Pagenateable;
+import common.persistence.dao.page.PagenateInfo;
+import common.persistence.dao.page.Pagenateable;
 
 /**
  * <p>
@@ -29,12 +29,10 @@ public abstract class PagenateableVO extends CommonVO implements Pagenateable {
 	@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 	protected PagenateInfo page = null;
 
-	@Override
 	public PagenateInfo getPage() {
 		return this.page;
 	}
 
-	@Override
 	public void setPage(PagenateInfo pim) {
 		this.page = pim;
 	}

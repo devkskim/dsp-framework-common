@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dsp.common.util.StringUtils;
+import common.util.StringUtils;
 
 /**
  * <p>

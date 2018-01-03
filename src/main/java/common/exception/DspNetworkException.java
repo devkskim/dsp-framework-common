@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.client.HttpClientErrorException;
 
-import com.dsp.common.context.DspReturnCodeSpec;
-import com.dsp.common.exception.domain.ErrorInfo;
+import common.context.DspReturnCodeSpec;
+import common.exception.domain.ErrorInfo;
 
 public class DspNetworkException extends DspException {
 	private static final long serialVersionUID = -9051058832079905941L;
